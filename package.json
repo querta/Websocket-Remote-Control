@@ -4,11 +4,8 @@
   "description": "Websocket remote controller ",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "start1": "rm -rf ./dist/ && npx tsc --rootDir src --outDir dist && node ./dist/index.js",
-    "start1:dev": "nodemon",
-    "start:dev": "nodemon ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node ./dist/index.js",
+    "start:dev": "nodemon"
   },
   "repository": {
     "type": "git",
