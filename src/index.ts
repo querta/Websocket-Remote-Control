@@ -30,5 +30,11 @@ wss.on('connection', async (ws) => {
 });
 
 wss.on('close', () => {
-    console.log('closed');
+    console.log('Service closed');
 });
+
+process.on('SIGINT', () => { 
+    wss.close();
+    console.log('Service closed');
+    process.exit();
+ })
