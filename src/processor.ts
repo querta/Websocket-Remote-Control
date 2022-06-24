@@ -1,11 +1,9 @@
 import robot from 'robotjs';
 import drawCircle from './drawers/drawCircle';
+import drawRectangle from './drawers/drawRectangle';
 
 const processor = async (cmd: string, coord: number[]): Promise<string> => {
     const { x, y } = robot.getMousePos();
-
-    // const [ reqX, reqY ] = [ coord[0], coord[1]];
-    // let responce: string = '';
 
     switch (cmd) {
         case 'mouse_position':
@@ -26,10 +24,11 @@ const processor = async (cmd: string, coord: number[]): Promise<string> => {
             drawCircle(x, y, coord[0]);
             break;
         case 'draw_rectangle':
-            //
+            drawRectangle(x, y, coord);
             break;
         case 'draw_square':
-            //
+            coord[1] = coord[0];
+            drawRectangle(x, y, coord);
             break;
     }
 
