@@ -1,6 +1,7 @@
 import robot from 'robotjs';
 import drawCircle from './drawers/drawCircle';
 import drawRectangle from './drawers/drawRectangle';
+import printScreen from './drawers/printScreen';
 
 const processor = async (cmd: string, coord: number[]): Promise<string> => {
     const { x, y } = robot.getMousePos();
@@ -30,8 +31,12 @@ const processor = async (cmd: string, coord: number[]): Promise<string> => {
             coord[1] = coord[0];
             drawRectangle(x, y, coord);
             break;
+        case 'prnt_scrn':
+            const image = await printScreen(x, y, 200);
+            return image;
+        default:
+            return ('Wrong_Command');
     }
-
     return ('');
 }
 

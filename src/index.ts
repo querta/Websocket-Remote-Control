@@ -1,4 +1,3 @@
-import robot from 'robotjs';
 import { createWebSocketStream, WebSocketServer } from 'ws';
 import httpServer from './http_server/index';
 import processor from './processor';
@@ -9,6 +8,7 @@ console.log(`Frontend is listening ${HTTP_PORT} port!`);
 httpServer.listen(HTTP_PORT);
 
 const wss = new WebSocketServer({ port: 8080 });
+console.log(`Backend is listening 8080 port!`);
 
 wss.on('connection', async (ws) => {
     const duplex = createWebSocketStream(ws, {
