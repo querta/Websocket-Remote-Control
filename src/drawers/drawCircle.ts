@@ -1,14 +1,14 @@
-import robot from 'robotjs';
+import { moveMouse, dragMouse, mouseToggle} from 'robotjs';
 
 const drawCircle = (x: number, y: number, rad: number) => {
-    robot.moveMouse(x + rad, y);
-    robot.mouseToggle('down');
+    moveMouse(x + rad, y);
+    mouseToggle('down');
     for (let i = 0; i <= Math.PI * 2; i += 0.01) {
         const newX = x + (rad * Math.cos(i));
         const newY = y + (rad * Math.sin(i));
-        robot.dragMouse(newX, newY);
+        dragMouse(newX, newY);
     };
-    robot.mouseToggle('up');
+    mouseToggle('up');
 }
 
 export default drawCircle;
