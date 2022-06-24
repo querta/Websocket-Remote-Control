@@ -23,6 +23,10 @@ const printScreen = async (x: number, y:number, size: number): Promise<string> =
     })
     const base64IMage = await jimp.getBase64Async(Jimp.MIME_PNG);
     const base64 = base64IMage.split(',')[1];
+    return base64;
+    // return new Promise((resolve) => {
+    //     resolve(image);
+    // });
 
 };
 

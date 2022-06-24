@@ -35,7 +35,7 @@ const processor = async (cmd: string, coord: number[]): Promise<string> => {
             const image = await printScreen(x, y, 200);
             return image;
         default:
-            return ('Wrong_Command');
+            throw new Error ('Wrong_Command');
     }
     return ('');
 }

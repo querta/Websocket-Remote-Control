@@ -19,8 +19,9 @@ wss.on('connection', async (ws) => {
     duplex.on('data', async (chunk) => {
         try {
             const [cmd, ...coord] = chunk.split(' ');
+            console.log(`Recieved: ${cmd} ${coord}`);
             const responce = await processor(cmd, coord.map(Number));
-            console.log(`${cmd} ${responce}`);
+            console.log(`Result: ${cmd} ${responce}`);
             duplex.write(`${cmd} ${responce}\0`);
         } catch (err: any) {
             duplex.write(err.message);
