@@ -23,9 +23,9 @@ wss.on('connection', async (ws) => {
             const responce = await processor(cmd, coord.map(Number));
             console.log(`Result: ${cmd} ${responce}`);
             duplex.write(`${cmd} ${responce}\0`);
-        } catch (err: any) {
-            duplex.write(err.message);
-            console.log(err.message)
+        } catch {
+            duplex.write('Error');
+            console.log('Error')
         }
     })
 });
