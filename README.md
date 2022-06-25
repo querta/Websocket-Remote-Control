@@ -15,8 +15,9 @@ Used libraries: [WS](https://www.npmjs.com/package/ws "WS"), [robotjs](https://w
 
 ### How to start:
 1. Clone repository:
-> git clone git@github.com:querta/Websocket-Remote-Control.git
-2. Go to repository folder
+> git clone git@github.com:querta/Websocket-Remote-Control.git && cd Websocket-Remote-Control
+2. Install dependencies 
+> npm install
 3. To start in regular mode:
 > npm run start 
 3.1 To start in dev mode (using nodemon):
